@@ -5,7 +5,11 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js --watch src",
-    "sequelize": "sequelize"
+    "sequelize": "sequelize",
+    "migrate": "sequelize db:migrate",
+    "migrate:reset": "sequelize db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
   },
   "license": "MIT",
   "dependencies": {
@@ -15,6 +19,7 @@
     "sequelize-cli": "^5.2.0"
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "nodemon": "^1.18.5",

@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "fastexpress": "latest",
     "mysql2": "^1.6.1",
     "sequelize": "5.14.0",
